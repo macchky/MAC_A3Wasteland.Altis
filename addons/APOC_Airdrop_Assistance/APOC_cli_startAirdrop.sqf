@@ -53,8 +53,10 @@ _confirmMsg = _confirmMsg + format ["<br/><t font='EtelkaMonospaceProBold'>1</t>
 	[[_type,_selectionNumber,_player,_heliDirection],"APOC_srv_startAirdrop",false,false,false] call BIS_fnc_MP;
 	APOC_AA_lastUsedTime = diag_tickTime;
 	diag_log format ["AAA - Just Used Time: %1; CoolDown Set At: %2; Current Time: %3",APOC_AA_lastUsedTime, APOC_AA_coolDownTime, diag_tickTime];
+	hint format ["Inbound Airdrop %2 Heading: %1 ETA: 40s",ceil _heliDirection,_selectionName];
 	player commandChat format ["Inbound Airdrop %2 Heading: %1 ETA: 40s",ceil _heliDirection,_selectionName];
 	sleep 20;
+	hint format ["Inbound Airdrop %2 Heading: %1 ETA: 20s",ceil _heliDirection,_selectionName];
 	player commandChat format ["Inbound Airdrop %2 Heading: %1 ETA: 20s",ceil _heliDirection,_selectionName];
 	};
 	
