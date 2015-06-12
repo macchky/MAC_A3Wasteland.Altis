@@ -80,4 +80,6 @@ if (isServer) then
 [] execVM "addons\EtV\init.sqf";
 [] execVM "addons\outlw_magRepack\MagRepack_init_sv.sqf";
 [] execVM "addons\APOC_Airdrop_Assistance\init.sqf";
+[] execVM "addons\laptop\init.sqf";
+
 
