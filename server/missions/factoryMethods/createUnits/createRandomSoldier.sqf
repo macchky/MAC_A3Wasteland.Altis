@@ -18,9 +18,9 @@ if (!isServer) exitWith {};
 private ["_soldierTypes", "_uniformTypes", "_vestTypes", "_weaponTypes", "_group", "_position", "_rank", "_soldier"];
 
 _soldierTypes = ["C_man_polo_1_F", "C_man_polo_2_F", "C_man_polo_3_F", "C_man_polo_4_F", "C_man_polo_5_F", "C_man_polo_6_F"];
-_uniformTypes = ["U_B_CombatUniform_mcam_vest", "U_B_CombatUniform_mcam_tshirt" ,"U_B_CombatUniform_mcam"];
-_vestTypes = ["V_PlateCarrier1_rgr","V_PlateCarrier2_rgr"];
-_weaponTypes = ["arifle_TRG20_F","LMG_Mk200_F","arifle_MXM_F","arifle_MX_GL_F"];
+_uniformTypes = ["U_I_CombatUniform_tshirt", "U_I_CombatUniform_shortsleeve" ,"U_B_CombatUniform_mcam_tshirt"];
+_vestTypes = ["V_PlateCarrier1_rgr","V_PlateCarrier2_rgr","V_HarnessOGL_gry","V_TacVestIR_blk"];
+_weaponTypes = ["srifle_EBR_ARCO_pointer_F","LMG_Mk200_MRCO_F","arifle_Katiba_GL_ARCO_pointer_F","arifle_MX_SW_Hamr_pointer_F"];
 
 _group = _this select 0;
 _position = _this select 1;
@@ -30,11 +30,6 @@ _soldier = _group createUnit [_soldierTypes call BIS_fnc_selectRandom, _position
 _soldier addUniform (_uniformTypes call BIS_fnc_selectRandom);
 _soldier addVest (_vestTypes call BIS_fnc_selectRandom);
 [_soldier, _weaponTypes call BIS_fnc_selectRandom, 3] call BIS_fnc_addWeapon;
-
-_soldier addPrimaryWeaponItem "acc_flashlight";
-_soldier enablegunlights "forceOn";					//set to "forceOn" to force use of lights (during day too default = AUTO)
-
-	
 
 if (_rank != "") then
 {
