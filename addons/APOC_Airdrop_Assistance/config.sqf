@@ -25,5 +25,6 @@ APOC_AA_SupOptions =
 	["DLC Rifles","airdrop_DLC_Rifles",45000,"supply"],
 	["DLC LMGs","airdrop_DLC_LMGs",45000,"supply"],
 	["Food","Land_Sacks_goods_F",10000,"picnic"],
-	["Water","Land_BarrelWater_F",10000,"picnic"]
+	["Water","Land_BarrelWater_F",10000,"picnic"],
+	["Base Building Start","Land_Pod_Heli_Transport_04_box_F",75000,"base"]
 ];

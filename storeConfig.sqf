@@ -633,7 +633,8 @@ genObjectsArray = compileFinal str
 	["Concrete Ramp (High)", "Land_RampConcreteHigh_F", 500, "object"],
 	//["Scaffolding", "Land_Scaffolding_F", 250, "object"]
 	["Land Pier (TOParma.com)", "Land_Pier_F", 250000, "object"],
-	["Fuel Station (TOParma.com)", "Land_FuelStation_Feed_F", 10000, "object"]
+	["Fuel Station (TOParma.com)", "Land_FuelStation_Feed_F", 10000, "object"],
+	["Base Starter (TOParma.com)", "Land_Pod_Heli_Transport_04_box_F", 50000, "object"]
 ];
 
 allGenStoreVanillaItems = compileFinal str (call genItemArray + call genObjectsArray + call allStoreGear);

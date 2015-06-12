@@ -222,6 +222,11 @@ if (_key != "" && isPlayer _player && {_isGenStore || _isGunStore || _isVehStore
 				{
 					_object setRepairCargo 25;
 				};
+				
+				case ({_object isKindOf _x} count ["Land_Pod_Heli_Transport_04_box_F"] > 0):
+				{
+					[_object, ["Land_Cargo_Tower_V1_F", ["Land_Canal_Wall_Stairs_F", 2], ["Land_Mil_WallBig_4m_F", 5], ["Land_Canal_WallSmall_10m_F", 10], ["Land_RampConcreteHigh_F",2], ["Land_RampConcrete_F", 2],["Land_Crash_barrier_F",2]] ] execVM "addons\R3F_LOG\auto_load_in_vehicle.sqf";
+				};
 			};
 
 			if (_object getVariable ["A3W_purchasedVehicle", false] && !isNil "fn_manualVehicleSave") then
