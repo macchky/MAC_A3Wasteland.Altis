@@ -121,18 +121,9 @@ if (_uid call isAdmin) then
 				{
 					hint format["Server FPS: %1",serverFPS];
 				};
-				case 7: //Test Function
+				case 7: //Access TOParma News
 				{
-					_group = createGroup civilian;
-					_leader = _group createunit ["C_man_polo_1_F", getPos player, [], 0.5, "Form"];
-
-					_leader addMagazine "RPG32_HE_F";
-					_leader addMagazine "RPG32_HE_F";
-					_leader addWeapon "launch_RPG32_F";
-					_leader addMagazine "30Rnd_556x45_Stanag";
-					_leader addMagazine "30Rnd_556x45_Stanag";
-					_leader addMagazine "30Rnd_556x45_Stanag";
-					_leader addWeapon "arifle_TRG20_F";
+					[] call loadTOParmaInfo;
 				};
 			};
 		};
