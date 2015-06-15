@@ -3,10 +3,12 @@
 	downloadData - script to download data from a laptop and because of this complete a task (as example)
 	File:		downloadData.sqf
 	Author:		T-800a
+	Edited: 	Lodac
 =======================================================================================================================
 */
 
-T8_varFileSize = 165072;  								// Filesize ... smaller files will take shorter time to download!
+#define T8_varFileSize (["A3W_hackedMissionDlSize", 165072] call getPublicVar)
+#define HACKED_ACCOUNT_PERCENTAGE (["A3W_hackedMissionPercentage", 0.005] call getPublicVar)
 
 T8_varTLine01 = "Download cancelled!";				// download aborted
 T8_varTLine02 = "Download already in progress by someone else!";			// download already in progress by someone else
@@ -59,7 +61,7 @@ T8_fnc_abortActionLaptop =
 
 T8_fnc_ActionLaptop =
 {
-	private [ "_laptop", "_caller", "_id", "_cIU","_totalMoney","_fivePercent","_playerSide"];
+	private [ "_laptop", "_caller", "_id", "_cIU","_totalMoney","_hackedPercent","_playerSide"];
 	_laptop = _this select 0;
 	_caller = _this select 1;
 	_id = _this select 2;
@@ -125,9 +127,9 @@ T8_fnc_ActionLaptop =
 			else {
 			_bmoney = _x getVariable ["bmoney",0];
 			if ( _bmoney > 0 ) then { //might as well check for zero's
-			_fivePercent = round(0.035*_bmoney);
-			_x setVariable [ "bmoney", (_bmoney - _fivePercent), true ];
-			_totalMoney = _totalMoney + _fivePercent;
+			_hackedPercent = round(HACKED_ACCOUNT_PERCENTAGE*_bmoney);
+			_x setVariable [ "bmoney", (_bmoney - _hackedPercent), true ];
+			_totalMoney = _totalMoney + _hackedPercent;
 		}
 			}
 				}
@@ -142,9 +144,9 @@ T8_fnc_ActionLaptop =
 			else {
 			_bmoney = _x getVariable ["bmoney",0];
 			if ( _bmoney > 0 ) then { //might as well check for zero's
-			_fivePercent = round(0.035*_bmoney);
-			_x setVariable [ "bmoney", (_bmoney - _fivePercent), true ];
-			_totalMoney = _totalMoney + _fivePercent;
+			_hackedPercent = round(HACKED_ACCOUNT_PERCENTAGE*_bmoney);
+			_x setVariable [ "bmoney", (_bmoney - _hackedPercent), true ];
+			_totalMoney = _totalMoney + _hackedPercent;
 		}
 			}
 				}	
@@ -156,9 +158,9 @@ T8_fnc_ActionLaptop =
 			if (isPlayer _x) then {
 			_bmoney = _x getVariable ["bmoney",0];
 			if ( _bmoney > 0 ) then { //might as well check for zero's
-			_fivePercent = round(0.035*_bmoney);
-			_x setVariable [ "bmoney", (_bmoney - _fivePercent), true ];
-			_totalMoney = _totalMoney + _fivePercent;
+			_hackedPercent = round(HACKED_ACCOUNT_PERCENTAGE*_bmoney);
+			_x setVariable [ "bmoney", (_bmoney - _hackedPercent), true ];
+			_totalMoney = _totalMoney + _hackedPercent;
 		}
 			}
 		} forEach playableUnits;

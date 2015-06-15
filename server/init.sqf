@@ -125,7 +125,9 @@ forEach
 	"A3W_tkKickAmount",
 	"A3W_donatorEnabled",
 	"A3W_customUniformEnabled",
-	"A3W_maxLockonDistance"
+	"A3W_maxLockonDistance",
+	"A3W_hackedMissionDlSize",
+	"A3W_hackedMissionPercentage"
 ];
 
 ["A3W_join", "onPlayerConnected", { [_id, _uid, _name] spawn fn_onPlayerConnected }] call BIS_fnc_addStackedEventHandler;
