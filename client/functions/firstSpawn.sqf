@@ -129,7 +129,7 @@ if (["A3W_combatAbortDelay", 0] call getPublicVar > 0) then
 		{
 			_ammo = _this select 4;
 
-			if ({_ammo isKindOf _x} count ["PipeBombBase", "ClaymoreDirectionalMine_Remote_Ammo"] > 0) then
+			if ({_ammo isKindOf _x} count ["PipeBombBase", "ClaymoreDirectionalMine_Remote_Ammo", "ATMine_Range_Ammo", "APERSMine_Range_Ammo", "APERSBoundingMine_Range_Ammo", "SLAMDirectionalMine_Wire_Ammo", "APERSTripMine_Wire_Ammo", "ClaymoreDirectionalMine_Remote_Ammo"] > 0) then
 			{
 				_mag = _this select 5;
 				_bomb = _this select 6;
@@ -141,7 +141,7 @@ if (["A3W_combatAbortDelay", 0] call getPublicVar > 0) then
 						deleteVehicle _bomb;
 						player addMagazine _mag;
 						playSound "FD_CP_Not_Clear_F";
-						titleText [format ["You are not allowed to place remote explosives within %1m of a store.\nThe explosive has been re-added to your inventory.", _minDist], "PLAIN DOWN", 0.5];
+						titleText [format ["You are not allowed to place explosives within %1m of a store.\nThe explosive has been re-added to your inventory.", _minDist], "PLAIN DOWN", 0.5];
 					};
 				} forEach entities "CAManBase";
 			};
