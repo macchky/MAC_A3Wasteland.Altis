@@ -29,6 +29,8 @@ A3W_donatorEnabled = 1;				// Enable/Disable Donator Features
 A3W_customUniformEnabled = 1;		// Enable/Disable Custom Uniforms
 A3W_tkAutoSwitchEnabled = 1;			// Enable/Disable Switch for team killers
 A3W_maxLockonDistance = 1000; 	// Max Lockon Distance with Missle
+APOC_coolDownTimer = 900;		// APOC Air Drop Cool Down Time
+
 
 // Store settings
 A3W_showGunStoreStatus = 1;        // Show enemy and friendly presence at gunstores on map (0 = no, 1 = yes)

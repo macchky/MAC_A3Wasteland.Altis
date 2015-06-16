@@ -159,10 +159,14 @@ _player setVariable ["bmoney", _newBalance, true];
 //  Now on to the fun stuff:
 
 diag_log format ["Apoc's Airdrop Assistance - Object at %1, Detach Up Next", position _object];  //A little log love to confirm the location of this new creature
+playSound3D ["a3\sounds_f\air\sfx\SL_rope_break.wss",_heli,false,getPosASL _heli,3,1,500];
 detach _object;  //WHEEEEEEEEEEEEE
 _objectPosDrop = position _object;
 _heli fire "CMFlareLauncher";
 _heli fire "CMFlareLauncher";
+
+sleep 2;
+playSound3D ["a3\sounds_f\sfx\radio\ambient_radio22.wss",_player,false,getPosASL _player,3,1,25];
 
 //Delete heli once it has proceeded to end point
 	[_heli,_grp,_flySpot,_dropSpot,_heliDistance] spawn {
