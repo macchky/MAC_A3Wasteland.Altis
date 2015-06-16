@@ -25,7 +25,7 @@
 			<English>You have been punished for teamkilling twice during this server session. Your inventory has been wiped, and you are now locked to the Independent side.</English>
 		</Key>
 		<Key ID="STR_WL_Loading_Teamkiller">
-			<English>You are restricted to the Independent side, due to having done 2 or more teamkills during this server session.</English>
+			<English>You are restricted to the Independent side, due to having 2+ teamkills during this server session AND/OR more than 10 Teamkills on TOParma Stats.</English>
 		</Key>
 		<Key ID="STR_WL_Loading_Teamswitched">
 			<English>You have played as %1 for too long and cannot switch to the other team. You can still play as Independent. (ADMIN WILL NOT MOVE YOU)</English>

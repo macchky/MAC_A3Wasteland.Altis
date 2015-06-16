@@ -30,7 +30,7 @@ _rulesOnline = "http://www.toparma.com/rules.php";
 _rulesOffline = "addons\TOParmaInfo\rules.html";
 _newsOnline = "http://www.toparma.com/news.php";
 _newsOffline = "addons\TOParmaInfo\news.html";
-_statsOnline = "http://www.toparma.com/stats.php?uid=" + _uid;
+_statsOnline = "http://www.toparma.com/s/" + _uid + "/s.php";
 _statsOffline = "addons\TOParmaInfo\stats.html";
 
 
