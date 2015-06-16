@@ -7,12 +7,14 @@
 if (!isServer) exitwith {};
 #include "moneyMissionDefines.sqf";
 
-private ["_positions", "_bunker", "_laptop", "_obj", "_randomGroup", "_vehicleName","_table"];
+private ["_nbUnits","_positions", "_bunker", "_laptop", "_table", "_obj","_bunker2", "_laptop2", "_table2", "_obj2","_bunker3", "_laptop3", "_table3", "_obj3","_bunker4", "_laptop4", "_table4", "_obj4", "_bunkerPos", "_connectedLaptop","_randomGroup", "_vehicleName", "_cash", "_aiPos", "_radius"];
 
 _setupVars =
 {
 	_missionType = "Hackers";
-	_locationsArray = MissionSpawnMarkers;
+	_nbUnits = if (missionDifficultyHard) then { AI_GROUP_LARGE } else { AI_GROUP_MEDIUM };
+	_locationsArray = HackerMissionMarkers;
+	_nbUnits = _nbUnits + round(random (_nbUnits*0.8));
 };
 
 _setupObjects =
@@ -20,69 +22,148 @@ _setupObjects =
 	_missionPos = markerPos _missionLocation;
 	
 //delete existing base parts and vehicles at location
-	_baseToDelete = nearestObjects [_missionPos, ["All"], 25];
+	_baseToDelete = nearestObjects [_missionPos, ["All"], 50];
 	{ deleteVehicle _x } forEach _baseToDelete; 
 	
 
 	_bunker = createVehicle ["CamoNet_INDP_big_F", [_missionPos select 0, _missionPos select 1], [], 0, "CAN COLLIDE"];
 	_bunker allowdamage false;
 	_bunker setDir random 360;
-	_bunker setVariable ["R3F_LOG_disabled", false];
-
-	_missionPos = getPosASL _bunker;
-
-	_table = createVehicle ["Land_WoodenTable_small_F", _missionPos, [], 0, "CAN COLLIDE"];
-	_table setPosASL [_missionPos select 0, (_missionPos select 1) - 0.25, _missionPos select 2];
+	_bunker setVariable ["R3F_LOG_disabled", true, true];
 	
-	_laptop = createVehicle ["Land_Laptop_unfolded_F", _missionPos, [], 0, "CAN COLLIDE"];
+	_bunkerPos = getPosASL _bunker;
+
+	_table = createVehicle ["Land_WoodenTable_small_F", _bunkerPos, [], 0, "CAN COLLIDE"];
+	_table setPosASL [_bunkerPos select 0, (_bunkerPos select 1) - 0.25, _bunkerPos select 2];
+	
+
+	
+	_laptop = createVehicle ["Land_Laptop_unfolded_F", _bunkerPos, [], 0, "CAN COLLIDE"];
 	_laptop attachTo [_table,[0,0,0.60]];
 	
 	
 
-	_obj = createVehicle ["I_GMG_01_high_F", _missionPos,[], 10,"None"]; 
-	_obj setPosASL [_missionPos select 0, (_missionPos select 1) + 2, _missionPos select 2];
+	_obj = createVehicle ["I_HMG_01_high_F", _bunkerPos,[], 10,"None"]; 
+	_obj setPosASL [_bunkerPos select 0, (_bunkerPos select 1) + 2, _bunkerPos select 2];
+	_obj setVariable ["R3F_LOG_disabled", true, true];
+	
+	
+	_bunker2 = createVehicle ["CamoNet_INDP_big_F", [(_missionPos select 0)+ 30, _missionPos select 1], [], 0, "CAN COLLIDE"];
+	_bunker2 allowdamage false;
+	_bunker2 setDir random 360;
+	_bunker2 setVariable ["R3F_LOG_disabled", true, true];
+	
+	_bunkerPos = getPosASL _bunker2;
 
-	AddLaptopHandler = _laptop;
+	_table2 = createVehicle ["Land_WoodenTable_small_F", _bunkerPos, [], 0, "CAN COLLIDE"];
+	_table2 setPosASL [_bunkerPos select 0, (_bunkerPos select 1) - 0.25, _bunkerPos select 2];
+	
+
+	
+	_laptop2 = createVehicle ["Land_Laptop_unfolded_F", _bunkerPos, [], 0, "CAN COLLIDE"];
+	_laptop2 attachTo [_table2,[0,0,0.60]];
+	
+	
+
+	_obj2 = createVehicle ["I_HMG_01_high_F", _bunkerPos,[], 10,"None"]; 
+	_obj2 setPosASL [_bunkerPos select 0, (_bunkerPos select 1) + 2, _bunkerPos select 2];
+	_obj2 setVariable ["R3F_LOG_disabled", true, true];
+	
+	_bunker3 = createVehicle ["CamoNet_INDP_big_F", [(_missionPos select 0) - 30, _missionPos select 1], [], 0, "CAN COLLIDE"];
+	_bunker3 allowdamage false;
+	_bunker3 setDir random 360;
+	_bunker3 setVariable ["R3F_LOG_disabled", true, true];
+	
+	_bunkerPos = getPosASL _bunker3;
+
+	_table3 = createVehicle ["Land_WoodenTable_small_F", _bunkerPos, [], 0, "CAN COLLIDE"];
+	_table3 setPosASL [_bunkerPos select 0, (_bunkerPos select 1) - 0.25, _bunkerPos select 2];
+	
+
+	
+	_laptop3 = createVehicle ["Land_Laptop_unfolded_F", _bunkerPos, [], 0, "CAN COLLIDE"];
+	_laptop3 attachTo [_table3,[0,0,0.60]];
+	
+	
+
+	_obj3 = createVehicle ["I_HMG_01_high_F", _bunkerPos,[], 10,"None"]; 
+	_obj3 setPosASL [_bunkerPos select 0, (_bunkerPos select 1) + 2, _bunkerPos select 2];
+	_obj3 setVariable ["R3F_LOG_disabled", true, true];
+	
+	_bunker4 = createVehicle ["CamoNet_INDP_big_F", [_missionPos select 0, (_missionPos select 1) + 30], [], 0, "CAN COLLIDE"];
+	_bunker4 allowdamage false;
+	_bunker4 setDir random 360;
+	_bunker4 setVariable ["R3F_LOG_disabled", true, true];
+	
+	_bunkerPos = getPosASL _bunker4;
+
+	_table4 = createVehicle ["Land_WoodenTable_small_F", _bunkerPos, [], 0, "CAN COLLIDE"];
+	_table4 setPosASL [_bunkerPos select 0, (_bunkerPos select 1) - 0.25, _bunkerPos select 2];
+	
+
+	
+	_laptop4 = createVehicle ["Land_Laptop_unfolded_F", _bunkerPos, [], 0, "CAN COLLIDE"];
+	_laptop4 attachTo [_table4,[0,0,0.60]];
+	
+	
+
+	_obj4 = createVehicle ["I_HMG_01_high_F", _bunkerPos,[], 10,"None"]; 
+	_obj4 setPosASL [_bunkerPos select 0, (_bunkerPos select 1) + 2, _bunkerPos select 2];
+	_obj4 setVariable ["R3F_LOG_disabled", true, true];
+	
+	// Pick a Laptop
+	_connectedLaptop = [_laptop,_laptop2,_laptop3,_laptop4] call BIS_fnc_selectRandom;
+	AddLaptopHandler = _connectedLaptop;
 	publicVariable "AddLaptopHandler";
 
-	_laptop setVariable [ "Done", false, true ];
+	_connectedLaptop setVariable [ "Done", false, true ];
 
 	// NPC Randomizer 
-	_randomGroup = [createGroup1,createGroup2,createGroup3,createGroup4,createGroup5,createGroup6,createGroup7,createGroup8,createGroup9,createGroup10] call BIS_fnc_selectRandom;
 	_aiGroup = createGroup CIVILIAN;
-	[_aiGroup,_missionPos] spawn _randomGroup;
+	_aiPos = [_missionPos select 0, (_missionPos select 1) - 20, 0];
+	_randomGroup = [createHackerGroup1] call BIS_fnc_selectRandom;
+	[_aiGroup, _aiPos, _nbUnits] spawn _randomGroup;
 
-	_aiGroup setCombatMode "RED";
-	_aiGroup setBehaviour "COMBAT";	
+	//_aiGroup setCombatMode "RED";
+	//_aiGroup setBehaviour "COMBAT";	
 	
 	_vehicleName = "Laptop";
-	_missionHintText = format ["<t color='%2'>Hackers</t> are using a laptop to hack your bank accounts. Hacking the laptop successfully will steal cash from each on-line players bank accounts!", _vehicleName, moneyMissionColor];
+	_missionHintText = format ["<t color='%2'>Hackers</t> are using a laptop to hack your bank accounts. Hacking the laptop successfully will steal cash from each on-line players bank accounts! Plus $75,000 from TOParma", _vehicleName, moneyMissionColor];
 };
 
 _waitUntilMarkerPos = nil;
 _waitUntilExec =
 {
-	AddLaptopHandler = _laptop;
+	AddLaptopHandler = _connectedLaptop;
 	publicVariable "AddLaptopHandler";
 };
 _waitUntilCondition = nil;
-_waitUntilSuccessCondition = { _laptop getVariable ["Done", false] };
+_waitUntilSuccessCondition = { _connectedLaptop getVariable ["Done", false] };
 _ignoreAiDeaths = true;
 
 _failedExec =
 {
 	// Mission failed
-	RemoveLaptopHandler = _laptop;
+	RemoveLaptopHandler = _connectedLaptop;
 	publicVariable "RemoveLaptopHandler";
-	{ deleteVehicle _x } forEach [_bunker, _obj, _laptop, _table];
+	{ deleteVehicle _x } forEach [_bunker,  _laptop, _table, _obj, _bunker2, _laptop2, _table2, _obj2, _bunker3,  _laptop3, _table3, _obj3, _bunker4,  _laptop4, _table4, _obj4];
 };
 
 _successExec =
 {
 	// Mission completed
-	RemoveLaptopHandler = _laptop;
+	RemoveLaptopHandler = _connectedLaptop;
 	publicVariable "RemoveLaptopHandler";
-	{ deleteVehicle _x } forEach [_laptop,_table ];
+	{ deleteVehicle _x } forEach [_laptop,_table,_laptop2,_table2,_laptop3,_table3,_laptop4,_table4 ];
+	
+	for "_i" from 1 to 10 do
+	{
+		_cash = createVehicle ["Land_Money_F", _connectedLaptop, [], 5, "None"];
+		_cash setPos ([_connectedLaptop, [[2 + random 3,0,0], random 360] call BIS_fnc_rotateVector2D] call BIS_fnc_vectorAdd);
+		_cash setDir random 360;
+		_cash setVariable ["cmoney", 75000 / 10, true];
+		_cash setVariable ["owner", "world", true];
+	};
 
 	_successHintMessage = format ["The laptop is hacked. Well done!"];
 };
