@@ -23,7 +23,11 @@ _unit = _this select 1;
 _vehicle = vehicle _unit;
 
 //check if caller is not in vehicle
-if (_vehicle == _unit) exitWith {};
+if (driver _vehicle != _unit) exitWith
+{
+	["You must be in the driver seat to service a vehicle.", 5] call mf_notify_client;
+	mutexScriptInProgress = false;
+};
 
 //set up prices
 _vehClass = typeOf _vehicle;
