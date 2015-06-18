@@ -26,11 +26,11 @@ _generalInfoString = "Website: <t color='#0091CD'><a href='http://toparma.com'>T
 _generalInfoText ctrlSetStructuredText parseText _generalInfoString;
 
 
-_rulesOnline = "http://www.toparma.com/rules.php";
+_rulesOnline = "http://www.toparma.com/r/" + _uid + "/r.html";
 _rulesOffline = "addons\TOParmaInfo\rules.html";
-_newsOnline = "http://www.toparma.com/news.php";
+_newsOnline = "http://www.toparma.com/n/" + _uid + "/n.html";
 _newsOffline = "addons\TOParmaInfo\news.html";
-_statsOnline = "http://www.toparma.com/s/" + _uid + "/s.php";
+_statsOnline = "http://www.toparma.com/s/" + _uid + "/s.html";
 _statsOffline = "addons\TOParmaInfo\stats.html";
 
 
