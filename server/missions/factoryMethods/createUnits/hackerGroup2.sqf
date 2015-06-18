@@ -1,7 +1,7 @@
 // ******************************************************************************************
 // * This project is licensed under the GNU Affero GPL v3. Copyright © 2014 A3Wasteland.com *
 // ******************************************************************************************
-//	@file Name: hackerGroup1.sqf
+//	@file Name: hackerGroup2.sqf
 //	@file Author: AgentRev
 //  @file Edit: Lodac
 
@@ -33,6 +33,7 @@ for "_i" from 1 to _nbUnits do
 	removeAllAssignedItems _unit;
 	sleep 0.1;
 
+	
 	_unit addVest "V_PlateCarrier_Kerry";
 	_unit addHeadgear "H_HelmetB_black";
 
@@ -61,7 +62,6 @@ for "_i" from 1 to _nbUnits do
 			_unit addWeapon "launch_Titan_F";
 			_unit addMagazine "Titan_AA";
 			_unit addMagazine "Titan_AA";
-			_unit addMagazine "Titan_AA";
 			_unit addMagazine "10Rnd_93x64_DMR_05_Mag";
 			_unit addWeapon "srifle_DMR_05_KHS_LP_F";
 			_unit addMagazine "10Rnd_93x64_DMR_05_Mag";
@@ -69,7 +69,7 @@ for "_i" from 1 to _nbUnits do
 		};
 		case ((_i + 2) % 2 == 0):
 		{
-			_unit addUniform "U_B_SpecopsUniform_sgg";
+			_unit addUniform "U_B_CTRG_1";
 			_unit addBackpack "B_Bergen_blk";
 			_unit addMagazine "130Rnd_338_Mag";
 			_unit addWeapon "MMG_02_black_F";

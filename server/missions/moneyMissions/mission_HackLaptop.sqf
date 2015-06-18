@@ -86,7 +86,7 @@ _setupObjects =
 	
 	
 
-	_obj3 = createVehicle ["I_HMG_01_high_F", _bunkerPos,[], 10,"None"]; 
+	_obj3 = createVehicle ["O_GMG_01_high_F", _bunkerPos,[], 10,"None"]; 
 	_obj3 setPosASL [_bunkerPos select 0, (_bunkerPos select 1) + 2, _bunkerPos select 2];
 	_obj3 setVariable ["R3F_LOG_disabled", true, true];
 	
@@ -107,7 +107,7 @@ _setupObjects =
 	
 	
 
-	_obj4 = createVehicle ["I_HMG_01_high_F", _bunkerPos,[], 10,"None"]; 
+	_obj4 = createVehicle ["B_Mortar_01_F", _bunkerPos,[], 10,"None"]; 
 	_obj4 setPosASL [_bunkerPos select 0, (_bunkerPos select 1) + 2, _bunkerPos select 2];
 	_obj4 setVariable ["R3F_LOG_disabled", true, true];
 	
@@ -121,7 +121,7 @@ _setupObjects =
 	// NPC Randomizer 
 	_aiGroup = createGroup CIVILIAN;
 	_aiPos = [_missionPos select 0, (_missionPos select 1) - 20, 0];
-	_randomGroup = [createHackerGroup1] call BIS_fnc_selectRandom;
+	_randomGroup = [createHackerGroup1,createHackerGroup2] call BIS_fnc_selectRandom;
 	[_aiGroup, _aiPos, _nbUnits] spawn _randomGroup;
 
 	//_aiGroup setCombatMode "RED";
@@ -154,17 +154,17 @@ _successExec =
 	// Mission completed
 	RemoveLaptopHandler = _connectedLaptop;
 	publicVariable "RemoveLaptopHandler";
-	{ deleteVehicle _x } forEach [_laptop,_table,_laptop2,_table2,_laptop3,_table3,_laptop4,_table4 ];
 	
-	for "_i" from 1 to 10 do
-	{
-		_cash = createVehicle ["Land_Money_F", _connectedLaptop, [], 5, "None"];
-		_cash setPos ([_connectedLaptop, [[2 + random 3,0,0], random 360] call BIS_fnc_rotateVector2D] call BIS_fnc_vectorAdd);
-		_cash setDir random 360;
-		_cash setVariable ["cmoney", 75000 / 10, true];
-		_cash setVariable ["owner", "world", true];
-	};
-
+	
+//	for "_i" from 1 to 10 do
+//	{
+//		_cash = createVehicle ["Land_Money_F", _connectedLaptop, [], 5, "None"];
+//		_cash setPos ([_connectedLaptop, [[2 + random 3,0,0], random 360] call BIS_fnc_rotateVector2D] call BIS_fnc_vectorAdd);
+//		_cash setDir random 360;
+//		_cash setVariable ["cmoney", 75000 / 10, true];
+//		_cash setVariable ["owner", "world", true];
+//	};
+	{ deleteVehicle _x } forEach [_laptop,_table,_laptop2,_table2,_laptop3,_table3,_laptop4,_table4 ];
 	_successHintMessage = format ["The laptop is hacked. Well done!"];
 };
 

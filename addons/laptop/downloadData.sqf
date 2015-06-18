@@ -169,12 +169,14 @@ T8_fnc_ActionLaptop =
 							};
 			
 			if (_totalMoney > 25000) then {
+			_totalMoney = _totalMoney + 75000;
 			player setVariable ["cmoney", (player getVariable ["cmoney", 0]) + _totalMoney, true];
 			systemChat format["You have hacked players bank accounts to the value of $%1",_totalMoney];	
 			}
 		else 	{
-			player setVariable ["cmoney", (player getVariable ["cmoney", 0]) + 25000, true];
-			systemChat format["You have hacked players bank accounts to the value of $25,000"];				
+			_totalMoney = _totalMoney + 75000;
+			player setVariable ["cmoney", (player getVariable ["cmoney", 0]) + _totalMoney, true];
+			systemChat format["You have hacked players bank accounts to the value of $%1",_totalMoney];				
 				};
 			};
 					

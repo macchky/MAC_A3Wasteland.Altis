@@ -31,6 +31,7 @@ createGroup8= [_path, "createUnits\Group8.sqf"] call mf_compile;
 createGroup9= [_path, "createUnits\Group9.sqf"] call mf_compile;
 createGroup10= [_path, "createUnits\Group10.sqf"] call mf_compile;
 createHackerGroup1= [_path, "createUnits\hackerGroup1.sqf"] call mf_compile;
+createHackerGroup2= [_path, "createUnits\hackerGroup2.sqf"] call mf_compile;
 createLargeDivers = [_path, "createUnits\largeDivers.sqf"] call mf_compile;
 createMissionLocation = [_path, "createMissionLocation.sqf"] call mf_compile;
 createMissionMarker = [_path, "createMissionMarker.sqf"] call mf_compile;
