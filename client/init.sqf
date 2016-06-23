@@ -145,6 +145,8 @@ if (["A3W_survivalSystem"] call isConfigOn) then
 	[] execVM "client\functions\createVehicleStoreMarkers.sqf";
 };
 
+A3W_clientSetupComplete = compileFinal "true";
+
 [] spawn playerSpawn;
 [] spawn playerCustomUniform;
 
