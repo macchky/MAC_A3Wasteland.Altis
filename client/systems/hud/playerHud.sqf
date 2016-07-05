@@ -107,7 +107,7 @@ while {true} do
 	_hudActivityIcon = _ui displayCtrl hud_activity_icon_idc;
 	_hudActivityTextbox = _ui displayCtrl hud_activity_textbox_idc;
 	_hudServerTextbox = _ui displayCtrl hud_server_idc;
-	
+
 	_serverString = format ["<t color='#A0FFFFFF'>Server: macchky Wasteland Altis</t>", call A3W_extDB_ServerID];
 	_serverString = format ["%1<br/><t color='#A0FFFFFF'>Website: game.macchky.net</t> <t color='#A000FF00'>FPS: %2</t>",_serverString,round diag_fps];
 	_hudServerTextbox ctrlSetStructuredText parseText _serverString;

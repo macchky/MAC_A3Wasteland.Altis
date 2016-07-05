@@ -73,7 +73,7 @@ rifleArray = compileFinal str
 	["GM6 Lynx Sniper (Camo)", "srifle_GM6_camo_LRPS_F", 1750],
 	// Underwater Gun
 	["SDAR Underwater Rifle", "arifle_SDAR_F", 100],
-	
+
 	//DLC Rifles
 	["Mk14 7.62 mm (Camo) [DLC]", "srifle_DMR_06_camo_F", 450],
 	["Mk14 7.62 mm (Olive) [DLC]", "srifle_DMR_06_olive_F", 450],
@@ -150,7 +150,7 @@ lmgArray = compileFinal str
 	["MX SW LMG (Black)", "arifle_MX_SW_Black_F", 325],
 	["Mk200 LMG", "LMG_Mk200_F", 375],
 	["Zafir LMG", "LMG_Zafir_F", 450],
-	
+
 	//DLC Weapons
 	["Navid 9.3 mm (Hex)[DLC]", "MMG_01_hex_F", 550],
 	["Navid 9.3 mm (Tan)[DLC]", "MMG_01_tan_F", 550],
@@ -345,14 +345,14 @@ ammoArray = compileFinal str
 	["GP-25 Smoke Shell (Green)", "CUP_1Rnd_SmokeGreen_GP25_M", 50],
 	["GP-25 Smoke Shell (Yellow)", "CUP_1Rnd_SmokeYellow_GP25_M", 50],
 
-	
+
 	//DLC Ammo
 	["12.7mm 10Rnd Mag", "10Rnd_127x54_Mag", 50],
 	["9.3mm 10Rnd Mag", "10Rnd_93x64_DMR_05_Mag", 50],
 	[".338 LM 10Rnd Mag", "10Rnd_338_Mag", 50],
 	["9.3mm 150Rnd Belt", "150Rnd_93x64_Mag", 150],
 	[".338 NM 130Rnd Belt", "130Rnd_338_Mag", 150],
-	
+
 	["40mm HE Grenade Round", "1Rnd_HE_Grenade_shell", 125],
 	["40mm 3Rnd HE Grenades", "3Rnd_HE_Grenade_shell", 250],
 	["40mm Smoke Round (White)", "1Rnd_Smoke_Grenade_shell", 50],
@@ -885,30 +885,33 @@ allGenStoreVanillaItems = compileFinal str (call genItemArray + call genObjectsA
 //Text name, classname, buy cost, spawn type, sell price (selling not implemented) or spawning color
 landArray = compileFinal str
 [
-	["Kart", "C_Kart_01_F", 500, "vehicle"],
+	// SKIPSAVE = will not be autosaved until first manual force save, good for cheap vehicles that usually get abandoned
 
-	["Quadbike (Civilian)", "C_Quadbike_01_F", 600, "vehicle"],
-	["Quadbike (NATO)", "B_Quadbike_01_F", 650, "vehicle"],
-	["Quadbike (CSAT)", "O_Quadbike_01_F", 650, "vehicle"],
-	["Quadbike (AAF)", "I_Quadbike_01_F", 650, "vehicle"],
-	["Quadbike (FIA)", "B_G_Quadbike_01_F", 650, "vehicle"],
+	["Kart", "C_Kart_01_F", 500, "vehicle", "SKIPSAVE"],
 
-	["Hatchback", "C_Hatchback_01_F", 800, "vehicle"],
-	["Hatchback Sport", "C_Hatchback_01_sport_F", 1000, "vehicle"],
-	["SUV", "C_SUV_01_F", 1100, "vehicle"],
-	["Offroad", "C_Offroad_01_F", 1100, "vehicle"],
-	["Offroad Camo", "B_G_Offroad_01_F", 1250, "vehicle"],
-	["Offroad Repair", "C_Offroad_01_repair_F", 1500, "vehicle"],
-	["Offroad HMG", "B_G_Offroad_01_armed_F", 2500, "vehicle"],
+	["Quadbike (Civilian)", "C_Quadbike_01_F", 600, "vehicle", "SKIPSAVE"],
+	["Quadbike (NATO)", "B_Quadbike_01_F", 650, "vehicle", "SKIPSAVE"],
+	["Quadbike (CSAT)", "O_Quadbike_01_F", 650, "vehicle", "SKIPSAVE"],
+	["Quadbike (AAF)", "I_Quadbike_01_F", 650, "vehicle", "SKIPSAVE"],
+	["Quadbike (FIA)", "B_G_Quadbike_01_F", 650, "vehicle", "SKIPSAVE"],
 
-	["Truck", "C_Van_01_transport_F", 700, "vehicle"],
-	["Truck (Camo)", "B_G_Van_01_transport_F", 800, "vehicle"],
-	["Truck Box", "C_Van_01_box_F", 900, "vehicle"],
-	["Fuel Truck", "C_Van_01_fuel_F", 2000, "vehicle"],
-	["Fuel Truck (Camo)", "B_G_Van_01_fuel_F", 2100, "vehicle"],
+	["Hatchback", "C_Hatchback_01_F", 800, "vehicle", "SKIPSAVE"],
+	["Hatchback Sport", "C_Hatchback_01_sport_F", 1000, "vehicle", "SKIPSAVE"],
+	["SUV", "C_SUV_01_F", 1100, "vehicle", "SKIPSAVE"],
+	["Offroad", "C_Offroad_01_F", 1100, "vehicle", "SKIPSAVE"],
+	["Offroad Camo", "B_G_Offroad_01_F", 1250, "vehicle", "SKIPSAVE"],
+	["Offroad Repair", "C_Offroad_01_repair_F", 1500, "vehicle", "SKIPSAVE"],
+	["Offroad HMG", "B_G_Offroad_01_armed_F", 2500, "vehicle", "SKIPSAVE"],
+
+	["Truck", "C_Van_01_transport_F", 700, "vehicle", "SKIPSAVE"],
+	["Truck (Camo)", "B_G_Van_01_transport_F", 800, "vehicle", "SKIPSAVE"],
+	["Truck Box", "C_Van_01_box_F", 900, "vehicle", "SKIPSAVE"],
+	["Fuel Truck", "C_Van_01_fuel_F", 2000, "vehicle", "SKIPSAVE"],
+	["Fuel Truck (Camo)", "B_G_Van_01_fuel_F", 2100, "vehicle", "SKIPSAVE"],
 
 	["HEMTT Tractor", "B_Truck_01_mover_F", 4000, "vehicle"],
-	["HEMTT Box", "B_Truck_01_box_F", 5000, "vehicle"],
+	["HEMTT Resupply", "B_Truck_01_ammo_F", 5000, "vehicle"],
+	//["HEMTT Box", "B_Truck_01_box_F", 5000, "vehicle"],
 	["HEMTT Transport", "B_Truck_01_transport_F", 6000, "vehicle"],
 	["HEMTT Covered", "B_Truck_01_covered_F", 7500, "vehicle"],
 	["HEMTT Fuel", "B_Truck_01_fuel_F", 9000, "vehicle"],
@@ -924,7 +927,8 @@ landArray = compileFinal str
 	["Tempest Repair", "O_Truck_03_repair_F", 12500, "vehicle"],
 	// ["Tempest Ammo", "O_Truck_03_ammo_F", 27500, "vehicle"],
 
-	["Zamak Transport", "I_Truck_02_transport_F", 4000, "vehicle"],
+	["Zamak Resupply", "I_Truck_02_ammo_F", 4000, "vehicle"],
+	["Zamak Transport", "I_Truck_02_transport_F", 4500, "vehicle"],
 	["Zamak Covered", "I_Truck_02_covered_F", 5000, "vehicle"],
 	["Zamak Fuel", "I_Truck_02_fuel_F", 7500, "vehicle"],
 	["Zamak Medical", "I_Truck_02_medical_F", 9000, "vehicle"],
@@ -941,13 +945,13 @@ landArray = compileFinal str
 
 armoredArray = compileFinal str
 [
-	["Hunter", "B_MRAP_01_F", 4000, "vehicle"],
+	["Hunter", "B_MRAP_01_F", 4000, "vehicle", "SKIPSAVE"],
 	["Hunter HMG", "B_MRAP_01_hmg_F", 15000, "vehicle"],
 	["Hunter GMG", "B_MRAP_01_gmg_F", 17500, "vehicle"],
-	["Ifrit", "O_MRAP_02_F", 4000, "vehicle"],
+	["Ifrit", "O_MRAP_02_F", 4000, "vehicle", "SKIPSAVE"],
 	["Ifrit HMG", "O_MRAP_02_hmg_F", 15000, "vehicle"],
 	["Ifrit GMG", "O_MRAP_02_gmg_F", 17500, "vehicle"],
-	["Strider", "I_MRAP_03_F", 4000, "vehicle"],
+	["Strider", "I_MRAP_03_F", 4000, "vehicle", "SKIPSAVE"],
 	["Strider HMG", "I_MRAP_03_hmg_F", 15000, "vehicle"],
 	["Strider GMG", "I_MRAP_03_gmg_F", 17500, "vehicle"],
 	["MSE-3 Marid", "O_APC_Wheeled_02_rcws_F", 22500, "vehicle"],
@@ -1002,10 +1006,10 @@ helicoptersArray = compileFinal str
 
 planesArray = compileFinal str
 [
-	//["A-143 Buzzard AA", "I_Plane_Fighter_03_AA_F", 80000, "vehicle"],
-	//["A-143 Buzzard CAS", "I_Plane_Fighter_03_CAS_F", 90000, "vehicle"],
-	["A-164 Wipeout CAS", "B_Plane_CAS_01_F", 100000, "vehicle"],
-	//["To-199 Neophron CAS", "O_Plane_CAS_02_F", 100000, "vehicle"],
+	["A-143 Buzzard AA", "I_Plane_Fighter_03_AA_F", 160000, "vehicle"],
+	["A-143 Buzzard CAS", "I_Plane_Fighter_03_CAS_F", 170000, "vehicle"],
+	//["A-164 Wipeout CAS", "B_Plane_CAS_01_F", 200000, "vehicle"],
+	["To-199 Neophron CAS", "O_Plane_CAS_02_F", 170000, "vehicle"],
 	//["MQ4A Greyhawk Missile UAV", "B_UAV_02_F", 200000, "vehicle"],
 	["MQ4A Greyhawk Bomber UAV", "B_UAV_02_CAS_F", 160000, "vehicle"], // Bomber UAVs are a lot harder to use, hence why they are cheaper than Missile ones
 	//["K40 Ababil-3 Missile UAV (CSAT)", "O_UAV_02_F", 200000, "vehicle"],
@@ -1188,10 +1192,16 @@ colorsArray = compileFinal str
 			]]
 		]
 	],
-	[ // Ghost Hawk camo 
+	[ // Ghost Hawk camo
 		"Heli_Transport_01_base_F",
 		[
 			["Green (Ghost Hawk)", ["Green"]]
+		]
+	],
+	[ // Zamak Hex paintjob
+		"Truck_02_base_F",
+		[
+			["Hex (Zamak)", ["Opfor"]]
 		]
 	],
 	[ // Strider NATO color
