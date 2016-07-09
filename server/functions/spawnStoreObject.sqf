@@ -131,6 +131,7 @@ if (_key != "" && isPlayer _player && {_isGenStore || _isGunStore || _isVehStore
 			_objectID = netId _object;
 			_object setVariable ["A3W_purchasedStoreObject", true];
 			_object setVariable ["ownerUID", getPlayerUID _player, true];
+			_object setVariable ["ownerName", name _player, true];
 			_object setVariable ["R3F_LOG_Disabled", false, true];
 
 			if (getNumber (configFile >> "CfgVehicles" >> _class >> "isUav") > 0) then
@@ -205,13 +206,13 @@ if (_key != "" && isPlayer _player && {_isGenStore || _isGunStore || _isVehStore
 				{
 					_object setVariable ["food", 50, true];
 				};
-				
+
 				// Add water to bought water barrels.
 				case ({_object isKindOf _x} count ["Land_BarrelWater_F"] > 0):
 				{
 					_object setVariable ["water", 50, true];
 				};
-				
+
 				case ({_object isKindOf _x} count ["Box_NATO_AmmoVeh_F", "Box_East_AmmoVeh_F", "Box_IND_AmmoVeh_F"] > 0):
 				{
 					_object setAmmoCargo 5;
