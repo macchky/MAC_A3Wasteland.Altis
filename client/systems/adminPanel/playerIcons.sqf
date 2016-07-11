@@ -120,5 +120,11 @@ if (_uid call isAdmin) then
 			};
 		};
 		uiSleep 0.3;
+		if (!adminPlayerIcons) exitWith {
+			if(!isNil'EventHandlerDrawAdded')then
+			{
+				(uiNamespace getVariable 'A3MAPICONS_mainMap') ctrlRemoveEventHandler ['Draw',EventHandlerDrawAdded];EventHandlerDrawAdded=nil;
+			};
+		};
 	};
 };

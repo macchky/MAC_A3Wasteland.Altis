@@ -108,8 +108,8 @@ while {true} do
 	_hudActivityTextbox = _ui displayCtrl hud_activity_textbox_idc;
 	_hudServerTextbox = _ui displayCtrl hud_server_idc;
 
-	_serverString = format ["<t color='#A0FFFFFF'>Server: macchky Wasteland Altis</t>", call A3W_extDB_ServerID];
-	_serverString = format ["%1<br/><t color='#A0FFFFFF'>Website: game.macchky.net</t> <t color='#A000FF00'>FPS: %2</t>",_serverString,round diag_fps];
+	_serverString = format ["<t color='#A0FFFFFF' font='puristaMedium'>Server: macchky Wasteland Altis</t>", call A3W_extDB_ServerID];
+	_serverString = format ["%1<br/><t color='#A0FFFFFF' font='puristaMedium'>Website: game.macchky.net</t> <t color='#A000FF00' font='puristaMedium'>FPS: %2</t>",_serverString,round diag_fps];
 	_hudServerTextbox ctrlSetStructuredText parseText _serverString;
 	_hudServerTextbox ctrlCommit 0;
 
@@ -143,22 +143,24 @@ while {true} do
 
 	_strArray = [];
 
+	_strArray pushBack format ["<t font='puristaMedium'>%1</t> <img size='0.9' image='client\icons\players.paa'/>", count playableUnits];
+
 	if (_atmEnabled) then {
-		_strArray pushBack format ["%1 <img size='0.7' image='client\icons\suatmm_icon.paa'/>", [player getVariable ["bmoney", 0]] call fn_numbersText];
+		_strArray pushBack format ["<t font='puristaMedium'>%1</t> <img size='0.7' image='client\icons\suatmm_icon.paa'/>", [player getVariable ["bmoney", 0]] call fn_numbersText];
 	};
 
-	_strArray pushBack format ["%1 <img size='0.7' image='client\icons\money.paa'/>", [player getVariable ["cmoney", 0]] call fn_numbersText];
+	_strArray pushBack format ["<t font='puristaMedium'>%1</t> <img size='0.7' image='client\icons\money.paa'/>", [player getVariable ["cmoney", 0]] call fn_numbersText];
 
 	if (_survivalSystem) then {
-		_strArray pushBack format ["%1 <img size='0.7' image='client\icons\water.paa'/>", ceil (thirstLevel max 0)];
-		_strArray pushBack format ["%1 <img size='0.7' image='client\icons\food.paa'/>", ceil (hungerLevel max 0)];
+		_strArray pushBack format ["<t font='puristaMedium'>%1</t> <img size='0.7' image='client\icons\water.paa'/>", ceil (thirstLevel max 0)];
+		_strArray pushBack format ["<t font='puristaMedium'>%1</t> <img size='0.7' image='client\icons\food.paa'/>", ceil (hungerLevel max 0)];
 	};
 
 	if (!_unlimitedStamina) then {
-		_strArray pushBack format ["%1 <img size='0.7' image='client\icons\running_man.paa'/>", 100 - ceil ((getFatigue player) * 100)];
+		_strArray pushBack format ["<t font='puristaMedium'>%1</t> <img size='0.7' image='client\icons\running_man.paa'/>", 100 - ceil ((getFatigue player) * 100)];
 	};
 
-	_strArray pushBack format ["<t color='%1'>%2</t> <img size='0.7' image='client\icons\health.paa'/>", _healthTextColor, _health];
+	_strArray pushBack format ["<t color='%1' font='puristaMedium'>%2</t> <img size='0.7' image='client\icons\health.paa'/>", _healthTextColor, _health];
 
 	_str = "";
 
@@ -180,7 +182,7 @@ while {true} do
 
 	if (isStreamFriendlyUIEnabled) then
 	{
-		_tempString = format ["<t color='#A0FFFFFF'>MAC A3Wasteland %1<br/>game.macchky.net</t>", getText (configFile >> "CfgWorlds" >> worldName >> "description")];
+		_tempString = format ["<t color='#A0FFFFFF' font='puristaMedium'>MAC A3Wasteland %1<br/>game.macchky.net</t>", getText (configFile >> "CfgWorlds" >> worldName >> "description")];
 		_yOffset = _yOffset + 0.08;
 	}
 	else
@@ -199,7 +201,7 @@ while {true} do
 						default                       { "client\icons\cargo.paa" };
 					};
 
-					_tempString = format ["%1 %2 <img image='%3'/><br/>", _tempString, name _x, _icon];
+					_tempString = format ["<t font='puristaMedium'>%1 %2</t> <img image='%3'/><br/>", _tempString, name _x, _icon];
 					_yOffset = _yOffset + 0.04;
 				};
 			} forEach crew _vehicle;
