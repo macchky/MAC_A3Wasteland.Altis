@@ -55,7 +55,7 @@ switch (true) do
 	};
 	
 	// Holster - unholster weapon (H key)
-	case (_key == 35):
+	case (_key in A3W_customKeys_hostler):
 	{
 		if (vehicle player == player && currentWeapon player != "") then
 		{
