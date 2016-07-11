@@ -32,7 +32,18 @@ if !(player getVariable ["performingDuty", false]) then
 			sleep 1.75;
 
 			_mine = createMine [_mineType, ASLtoAGL ((getPosASL player) vectorAdd [0, 0, 0.5]), [], 0];
-			_mine setDamage 1;
+			player addOwnedMine _mine;
+
+			if (alive player) then
+			{
+				player action ["TouchOff", player];
+			}
+			else
+			{
+				_mine setDamage 1;
+			};
+
+			{ player addOwnedMine _x } forEach _oldMines;
 
 			if (damage player < 1) then // if check required to prevent "Killed" EH from getting triggered twice
 			{
