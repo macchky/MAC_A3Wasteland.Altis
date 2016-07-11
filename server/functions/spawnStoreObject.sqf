@@ -189,6 +189,12 @@ if (_key != "" && isPlayer _player && {_isGenStore || _isGunStore || _isVehStore
 				};
 			};
 
+			if (_object isKindOf "AllVehicles" && !({_object isKindOf _x} count ["StaticWeapon","UAV_02_base_F","UGV_01_base_F","B_T_UAV_03_F","O_T_UAV_04_CAS_F"] > 0)) then
+			{
+				_object lock 2; // Spawn vehicles in locked
+				_object setVariable ["R3F_LOG_disabled", true, true]; // Spawn vehicles in locked
+			};
+
 			_object setDir (if (_object isKindOf "Plane") then { markerDir _marker } else { random 360 });
 
 			_isDamageable = !(_object isKindOf "ReammoBox_F"); // ({_object isKindOf _x} count ["AllVehicles", "Lamps_base_F", "Cargo_Patrol_base_F", "Cargo_Tower_base_F"] > 0);
