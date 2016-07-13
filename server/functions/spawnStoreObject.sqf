@@ -134,7 +134,9 @@ if (_key != "" && isPlayer _player && {_isGenStore || _isGunStore || _isVehStore
 			_object setVariable ["ownerName", name _player, true];
 			_object setVariable ["R3F_LOG_Disabled", false, true];
 
-			if (getNumber (configFile >> "CfgVehicles" >> _class >> "isUav") > 0) then
+			private _isUAV = (round getNumber (configFile >> "CfgVehicles" >> _class >> "isUav") > 0);
+
+			if (_isUAV) then
 			{
 				//assign AI to the vehicle so it can actually be used
 				createVehicleCrew _object;
@@ -183,7 +185,7 @@ if (_key != "" && isPlayer _player && {_isGenStore || _isGunStore || _isVehStore
 				// _object spawn cleanVehicleWreck;
 				_object setVariable ["A3W_purchasedVehicle", true, true];
 
-				if (["A3W_vehicleLocking"] call isConfigOn) then
+				if (["A3W_vehicleLocking"] call isConfigOn && !_isUAV) then
 				{
 					[_object, 2] call A3W_fnc_setLockState; // Lock
 				};
@@ -205,7 +207,8 @@ if (_key != "" && isPlayer _player && {_isGenStore || _isGunStore || _isVehStore
 
 			clearBackpackCargoGlobal _object;
 
-			switch (true) do
+			// don't need this anymore at all
+			/*switch (true) do
 			{
 				// Add food to bought food sacks.
 				case ({_object isKindOf _x} count ["Land_Sacks_goods_F"] > 0):
@@ -264,7 +267,8 @@ if (_key != "" && isPlayer _player && {_isGenStore || _isGunStore || _isVehStore
 					_object setVariable ["A3W_resupplyTruck", true, true];
 					_object addAction ["<img image='client\icons\repair.paa'/> Resupply", "client\functions\fn_resupplytruck.sqf", [], 51, true, true, "", "vehicle _this != _this && _this distance _target <= 20"];
 				};
-			};
+
+			};*/
 
 			if (_skipSave) then
 			{
