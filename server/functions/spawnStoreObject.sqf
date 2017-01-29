@@ -145,7 +145,7 @@ if (_key != "" && isPlayer _player && {_isGenStore || _isGunStore || _isVehStore
 				{
 					params ["_uav", "_playerSide", "_playerGroup"];
 
-					_grp = [_uav, _playerSide] call fn_createCrewUAV;
+					_grp = [_uav, _playerSide, true] call fn_createCrewUAV;
 
 					if (isNull (_uav getVariable ["ownerGroupUAV", grpNull])) then
 					{
