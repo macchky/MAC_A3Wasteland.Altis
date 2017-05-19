@@ -13,18 +13,6 @@ private ["_class", "_getInOut", "_centerOfMass", "_weapons"];
 _class = typeOf _vehicle;
 
 _vehicle setVariable [call vChecksum, true];
-if (vehicleThermalsOn) then
-{
-	_vehicle disableTIEquipment false;
-}
-else
-{
-	if !(_vehicle isKindOf "UAV_02_base_F") then
-	{
-		_vehicle disableTIEquipment true;
-	};
-};
-
 
 clearMagazineCargoGlobal _vehicle;
 clearWeaponCargoGlobal _vehicle;
@@ -57,37 +45,9 @@ _vehicle setVariable ["A3W_handleDamageEH", _vehicle addEventHandler ["HandleDam
 _vehicle setVariable ["A3W_dammagedEH", _vehicle addEventHandler ["Dammaged", vehicleDammagedEvent]];
 _vehicle setVariable ["A3W_engineEH", _vehicle addEventHandler ["Engine", vehicleEngineEvent]];
 
-_getInOut =
-{
-	_vehicle = _this select 0;
-	_unit = _this select 2;
-
-	_unit setVariable ["lastVehicleRidden", netId _vehicle, true];
-
-	if (isPlayer _unit && owner _vehicle == owner _unit) then
-	{
-		_vehicle setVariable ["lastVehicleOwnerUID", getPlayerUID _unit, true];
-	};
-
-	_vehicle setVariable ["vehSaving_hoursUnused", 0];
-	_vehicle setVariable ["vehSaving_lastUse", diag_tickTime];
-};
-
-_vehicle addEventHandler ["GetIn", _getInOut];
-_vehicle addEventHandler ["GetOut", _getInOut];
-
-// Wreck cleanup
-_vehicle addEventHandler ["Killed",
-{
-	_veh = _this select 0;
-	_veh call A3W_fnc_setItemCleanup;
-
-	if (!isNil "fn_manualVehicleDelete") then
-	{
-		[objNull, _veh getVariable "A3W_vehicleID"] call fn_manualVehicleDelete;
-		_veh setVariable ["A3W_vehicleSaved", false, false];
-	};
-}];
+_vehicle addEventHandler ["GetIn", fn_vehicleGetInOutServer];
+_vehicle addEventHandler ["GetOut", fn_vehicleGetInOutServer];
+_vehicle addEventHandler ["Killed", fn_vehicleKilledServer];
 
 if ({_class isKindOf _x} count ["Air","UGV_01_base_F"] > 0) then
 {
