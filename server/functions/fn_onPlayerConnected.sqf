@@ -17,29 +17,3 @@ if !(_spawnTimestamps isEqualTo []) then
 {
 	[_spawnTimestamps, diag_tickTime] remoteExec ["A3W_fnc_setSpawnTimestamps", _owner]; // do not whitelist
 };
-
-if (["A3W_AdminConnectionChat"] call isConfigOn) then
-{
-	switch (true) do
-	{
-		case ([_uid, serverOwners] call isAdmin):
-		{
-			_msg = "Super Admin " + _name + " connected";
-			uiSleep 5;
-			_result = "extDB2" callExtension format["1:%1:SAY -1 %2", call A3W_extDB_RconID, _msg];
-		};
-		case ([_uid, highAdmins] call isAdmin):
-		{
-			_msg = "High Admin " + _name + " connected";
-			uiSleep 5;
-			_result = "extDB2" callExtension format["1:%1:SAY -1 %2", call A3W_extDB_RconID, _msg];
-		};
-		case ([_uid, lowAdmins] call isAdmin):
-		{
-			_msg = "Low Admin " + _name + " connected";
-			uiSleep 5;
-			_result = "extDB2" callExtension format["1:%1:SAY -1 %2", call A3W_extDB_RconID, _msg];
-		};
-
-	};
-};
